@@ -1,0 +1,168 @@
+//-----------problem1--------------//
+        //---solution1---//
+ALGORITHM SUM
+VAR
+    arr1 : ARRAY_OF_INTEGER[n]
+    arr2 : ARRAY_OF_INTEGER[m]
+    n,m,i,j : INTEGER
+    sum:INTEGER:=0
+
+BEGIN
+    //get the length of the two arrays from the user
+    read(n)
+    read(m)
+
+    //insert arr1 from the user
+    FOR i FROM 0 TO n-1 STEP 1  DO
+        read(arr1[i])
+    END_FOR
+
+    //insert arr2 from the user
+    FOR j FROM 0 TO m-1 STEP 1  DO
+        read(arr2[j])
+    END_FOR
+
+    //comparing arr1 with arr2 
+    FOR i FROM 0 TO n-1 STEP 1  DO
+        FOR j FROM 0 TO m-1 STEP 1  DO
+            IF (arr1[i] !== arr2[j]) THEN
+                sum+=arr1[i]
+            END_IF
+        END_FOR
+    END_FOR
+
+    //comparing arr2 with arr1
+    FOR j FROM 0 TO m-1 STEP 1  DO
+        FOR i FROM 0 TO n-1 STEP 1  DO
+            IF (arr2[j] !== arr1[i]) THEN
+                sum+=arr2[j]
+            END_IF
+        END_FOR
+    END_FOR
+END
+
+
+//---solution2---//
+ALGORITHM solution_2
+VAR
+    arr1 : ARRAY_OF_INTEGER[n]
+    arr2 : ARRAY_OF_INTEGER[m]
+    n,m,i,j : INTEGER
+    sum:INTEGER:=0
+    htab : HASH_TABLE<INTEGER,INTEGER>;
+
+BEGIN
+    //get the length of the two arrays from the user
+    read(n)
+    read(m)
+
+    //insert arr1 from the user
+    FOR i FROM 0 TO n-1 STEP 1  DO
+        read(arr1[i])
+    END_FOR
+
+    //insert arr2 from the user
+    FOR j FROM 0 TO m-1 STEP 1  DO
+        read(arr2[j])
+    END_FOR
+
+    //comparing between two arrays using hash table
+    FOR i FROM 0 TO n-1 STEP 1  DO
+    FOR j FROM 0 TO m-1 STEP 1  DO
+        IF (htab.lookup(arr1[i]) != htab.lookup(arr2[j])) THEN
+        sum+=htab.get(arr1[i])
+    END_FOR
+    END_FOR
+
+    FOR j FROM 0 TO m-1 STEP 1  DO
+    FOR i FROM 0 TO n-1 STEP 1  DO
+        IF (htab.lookup(arr2[j]) != htab.lookup(arr1[i])) THEN
+        sum+=htab.get(arr2[j])
+    END_FOR
+    END_FOR
+END
+
+
+
+//-----------problem2--------------//
+ //---solution1---//
+ALGORITHM SUM
+VAR
+    arr1 : ARRAY_OF_INTEGER[n]
+    arr2 : ARRAY_OF_INTEGER[m]
+    n,m,i,j : INTEGER
+    sum:INTEGER:=0
+
+BEGIN
+    //get the length of the two arrays from the user
+    read(n)
+    read(m)
+
+    //insert arr1 from the user
+    FOR i FROM 0 TO n-1 STEP 1  DO
+        read(arr1[i])
+    END_FOR
+
+    //insert arr2 from the user
+    FOR j FROM 0 TO m-1 STEP 1  DO
+        read(arr2[j])
+    END_FOR
+
+    //comparing arr1 with arr2 
+    FOR i FROM 0 TO n-1 STEP 1  DO
+        FOR j FROM 0 TO m-1 STEP 1  DO
+            IF (arr1[i] = arr2[j]) THEN
+                sum+=arr1[i]
+            END_IF
+        END_FOR
+    END_FOR
+
+    //comparing arr2 with arr1
+    FOR j FROM 0 TO m-1 STEP 1  DO
+        FOR i FROM 0 TO n-1 STEP 1  DO
+            IF (arr2[j] = arr1[i]) THEN
+                sum+=arr2[j]
+            END_IF
+        END_FOR
+    END_FOR
+END
+
+//---solution2---//
+ALGORITHM solution_2
+VAR
+    arr1 : ARRAY_OF_INTEGER[n]
+    arr2 : ARRAY_OF_INTEGER[m]
+    n,m,i,j : INTEGER
+    sum:INTEGER:=0
+    htab : HASH_TABLE<INTEGER,INTEGER>;
+
+BEGIN
+    //get the length of the two arrays from the user
+    read(n)
+    read(m)
+
+    //insert arr1 from the user
+    FOR i FROM 0 TO n-1 STEP 1  DO
+        read(arr1[i])
+    END_FOR
+
+    //insert arr2 from the user
+    FOR j FROM 0 TO m-1 STEP 1  DO
+        read(arr2[j])
+    END_FOR
+
+    //comparing between two arrays using hash table
+    FOR i FROM 0 TO n-1 STEP 1  DO
+    FOR j FROM 0 TO m-1 STEP 1  DO
+        IF (htab.lookup(arr1[i]) = htab.lookup(arr2[j])) THEN
+        sum+=htab.get(arr1[i])
+    END_FOR
+    END_FOR
+
+    FOR j FROM 0 TO m-1 STEP 1  DO
+    FOR i FROM 0 TO n-1 STEP 1  DO
+        IF (htab.lookup(arr2[j]) = htab.lookup(arr1[i])) THEN
+        sum+=htab.get(arr2[j])
+    END_FOR
+    END_FOR
+END
