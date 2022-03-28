@@ -1,0 +1,29 @@
+ALGORITHM test
+VAR
+    sentence: STRING;
+    C: CHAR:='a','e','i','o','u','y';
+    i: INTEGER;
+    number:INTEGER:=0;
+//THE LENGTH OF THE SENTENCE
+BEGIN
+    write('write a sentence: ')
+    read(sentence)
+    number:= length(sentence)
+    write(number);
+END
+
+//THE NUMBER OF WORDS IN THE SENTENCE 
+FOR i FROM 1 TO length(sentence) STEP 1  DO
+    IF (sentence[i]:='') THEN
+        number+=1;
+    END_IF
+     write('The number of words is : ',number)
+END_FOR
+
+//THE NUMBER OF VOELS
+FOR i FROM 1 TO length(sentence) STEP 1  DO
+    IF (sentence[i]:=C) THEN
+       number+=1
+    END_IF
+    write('The number of voels is : ',number)
+END_FOR  
