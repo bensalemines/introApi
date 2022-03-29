@@ -1,0 +1,43 @@
+//--------PROCEDURE ---------//
+PROCEDURE dot_product (v1,v2:ARRAY_OF_FLOAT , var PS:Float)
+VAR
+    i:integer
+BEGIN
+    FOR i FROM 0 TO v1.length-1 STEP 1  DO
+        PS+= v1[i]*v2[i]
+    END_FOR
+END
+
+ALGORITHM ortho
+VAR
+    i,j,n:INTEGER 
+    v1,v2:ARRAY_OF_FLOAT[leng]
+    ps: Float :=0
+BEGIN
+   //get the number of pair 
+   read (n)
+
+   //get the size of the vectors
+   FOR i FROM 1 TO n STEP 1 DO
+       read(leng)
+   END_FOR
+
+   //get the elements of the pair of vectors
+   FOR i FROM 0 TO leng-1 STEP 1  DO
+       read(v1[i])
+   END_FOR
+   FOR j FROM 0 TO leng-1 STEP 1 DO
+      read(v2[j])
+   END_FOR
+
+   //produit scalaire
+   dot_product(v1,v2,PS)
+
+   //verification of the orthogonality
+    IF (PS=0) THEN
+           write('the two vectors are orthogonal')
+       ELSE
+           write('the two vectors are not orthogonal')
+       END_IF
+
+END
